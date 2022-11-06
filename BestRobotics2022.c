@@ -14,10 +14,6 @@ task main()
 
 	int cycleCounter = 0;
 
-
-	motor[ClawUpper] = MIN_CLAW_UPPER;
-	motor[ClawLower] = MAX_CLAW_LOWER;
-
 	while(1)
 	{
 		cycleCounter += 1;
@@ -43,7 +39,7 @@ task main()
 			{
 			   motor[ClawUpper] -= 1;
 			}
-
+			
 		}
 
 			//WHEEL CODE
@@ -51,25 +47,26 @@ task main()
 			motor[RightWheel] = vexRT[Ch2];
 
 			//ARM CODE
-			if (vexRT [Btn5U])
+			if (vexRT [Btn5D])
 			{
 			   motor[Arm] = 127;
 			}
-			if (vexRT [Btn5D] )
+			else if (vexRT [Btn5U] )
 			{
 			   motor[Arm] = -127;
 			}
+			else motor[Arm] = 0;
 
 			// PISTON CODE
 			if (vexRT [Btn8R])
 			{
 			   motor[Piston] = 127;
 			}
-			if (vexRT [Btn8L] )
+			else if (vexRT [Btn8L] )
 			{
 			   motor[Piston] = -127;
 			}
-
+			else motor[Piston] = 0;
 
 
 	}
